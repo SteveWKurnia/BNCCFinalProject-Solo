@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">FirstClassBNCCAcademy</string>
+    <string name="lorem_body">Lorem Ipsum is simply dummy text of the printing
+        and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s,
+        when an unknown printer took a galley of type and scrambled it to make a type specimen book.</string>
+    <string name="lorem_title">What is Lorem Ipsum?</string>
+    <string name="main_image">main image</string>
+    <string name="lorem_ipsum">lorem ipsum</string>
+    <string name="sample_body">This is a sample text body</string>
+    <string name="sample_caption">Text caption</string>
+    <string name="get_to_know_more">Get to know more</string>
+</resources>

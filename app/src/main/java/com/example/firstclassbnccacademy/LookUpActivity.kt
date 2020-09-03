@@ -6,20 +6,24 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import kotlinx.android.synthetic.main.activity_look_up.*
 
-
 class LookUpActivity: AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_look_up)
         setupDynamicStatusBarColor()
-        val str = intent?.getStringExtra("key").orEmpty()
-        tv_main?.text = str
     }
 
     override fun onStart() {
         super.onStart()
         setupBackButton()
+        setupBundledData()
+        setupSearchView()
+    }
+
+    private fun setupBundledData() {
+        val str = intent?.getStringExtra(MainActivity.EXTRA).orEmpty()
+        tv_main?.text = str
     }
 
     private fun setupDynamicStatusBarColor() {
@@ -31,6 +35,16 @@ class LookUpActivity: AppCompatActivity() {
     private fun setupBackButton() {
         iv_back?.setOnClickListener {
             super.onBackPressed()
+        }
+    }
+
+    private fun setupSearchView() {
+        setupClearButton()
+    }
+
+    private fun setupClearButton() {
+        iv_clear?.setOnClickListener {
+            et_search?.text?.clear()
         }
     }
 

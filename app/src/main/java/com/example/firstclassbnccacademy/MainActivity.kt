@@ -17,11 +17,15 @@ class MainActivity : AppCompatActivity() {
         cl_lookup?.setOnClickListener {
             it.context?.let { context ->
                 val intent = Intent(context, LookUpActivity::class.java).apply {
-                    putExtra("key", "Print something")
+                    putExtra(EXTRA, "Print something")
                 }
                 context.startActivity(intent)
             }
         }
+    }
+
+    companion object {
+        const val EXTRA = "key"
     }
 
 }

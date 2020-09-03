@@ -9,4 +9,6 @@
     <string name="sample_body">This is a sample text body</string>
     <string name="sample_caption">Text caption</string>
     <string name="get_to_know_more">Get to know more</string>
+    <string name="edittext_hint">Lampung</string>
+    <string name="indonesia">Indonesia</string>
 </resources>

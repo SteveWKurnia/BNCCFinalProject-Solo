@@ -204,6 +204,7 @@
             android:layout_marginEnd="20dp"/>
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_lookup"
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:background="@drawable/violet_shape_rounded_corners_10dp"

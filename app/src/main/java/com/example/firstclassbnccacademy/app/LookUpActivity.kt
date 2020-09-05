@@ -1,9 +1,10 @@
-package com.example.firstclassbnccacademy
+package com.example.firstclassbnccacademy.app
 
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import com.example.firstclassbnccacademy.R
 import kotlinx.android.synthetic.main.activity_look_up.*
 
 class LookUpActivity: AppCompatActivity() {
@@ -29,7 +30,9 @@ class LookUpActivity: AppCompatActivity() {
     private fun setupDynamicStatusBarColor() {
         val view = this.window.decorView
         view.systemUiVisibility = view.systemUiVisibility or View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
-        this.window.statusBarColor = ContextCompat.getColor(this, R.color.off_white)
+        this.window.statusBarColor = ContextCompat.getColor(this,
+            R.color.off_white
+        )
     }
 
     private fun setupBackButton() {

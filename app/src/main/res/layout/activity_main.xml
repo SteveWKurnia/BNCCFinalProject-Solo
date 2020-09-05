@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
+    tools:context=".app.MainActivity"
     android:background="@color/indigo">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -46,7 +46,7 @@
         app:layout_constraintStart_toStartOf="parent"/>
 
     <TextView
-        android:id="@+id/corona"
+        android:id="@+id/tv_total_case"
         android:text="86521"
         style="@style/h1"
         android:textColor="#fff"
@@ -58,6 +58,7 @@
         android:layout_marginTop="100dp"/>
 
     <TextView
+        android:id="@+id/tv_total_case_static"
         android:text="Total Cases"
         style="@style/b1"
         android:textColor="#fff"
@@ -65,7 +66,16 @@
         android:layout_height="wrap_content"
         app:layout_constraintStart_toEndOf="@id/iv_main"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/corona"/>
+        app:layout_constraintTop_toBottomOf="@id/tv_total_case"/>
+
+    <ProgressBar
+        android:id="@+id/pb_load_total_case"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/iv_main"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="100dp"/>
 
     <LinearLayout
         android:id="@+id/ll_bottom_sheet"
@@ -303,5 +313,12 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </LinearLayout>
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/group_total_case"
+        android:visibility="gone"
+        app:constraint_referenced_ids="tv_total_case_static, tv_total_case"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

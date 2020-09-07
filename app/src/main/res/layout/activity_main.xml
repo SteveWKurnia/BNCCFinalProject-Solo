@@ -266,7 +266,7 @@
 
             <TextView
                 android:id="@+id/tv_first_caption"
-                android:text="@string/sample_caption"
+                android:text="@string/look_up_title"
                 style="@style/h4"
                 android:textColor="@color/indigo2"
                 android:layout_width="wrap_content"
@@ -277,8 +277,8 @@
 
             <TextView
                 android:id="@+id/tv_first_body"
-                android:text="@string/sample_body"
-                android:layout_width="wrap_content"
+                android:text="@string/look_up_desc"
+                android:layout_width="175dp"
                 android:layout_height="wrap_content"
                 style="@style/b2"
                 app:layout_constraintStart_toEndOf="@id/iv_first_item"
@@ -316,7 +316,7 @@
 
             <TextView
                 android:id="@+id/tv_second_caption"
-                android:text="@string/sample_caption"
+                android:text="@string/hotline_title"
                 style="@style/h4"
                 android:textColor="@color/indigo2"
                 android:layout_width="wrap_content"
@@ -326,8 +326,8 @@
                 android:layout_marginStart="10dp"/>
 
             <TextView
-                android:text="@string/sample_body"
-                android:layout_width="wrap_content"
+                android:text="@string/hotline_desc"
+                android:layout_width="175dp"
                 android:layout_height="wrap_content"
                 style="@style/b2"
                 app:layout_constraintTop_toBottomOf="@id/tv_second_caption"

@@ -57,16 +57,24 @@ class MainActivity : AppCompatActivity() {
         tv_recovered_case?.text = it.orEmpty()
     }
 
+    private var getDeathCaseObserver: Observer<String> = Observer {
+        pb_death_case?.visibility = View.GONE
+        ll_death_case?.visibility = View.VISIBLE
+        tv_death_case?.text = it.orEmpty()
+    }
+
     private fun setupViewModelsData() {
         viewModel.getIndonesiaTotalCases()
         viewModel.getIndonesiaPositiveCases()
         viewModel.getIndonesiaRecoveredCases()
+        viewModel.getIndonesiaDeathCases()
     }
 
     private fun setupViewModelObservers() {
         viewModel.totalCase.observe(this, getTotalCaseObserver)
         viewModel.positiveCases.observe(this, getPositiveCaseObserver)
         viewModel.recoveredCase.observe(this, getRecoveredCaseObserver)
+        viewModel.deathCases.observe(this, getDeathCaseObserver)
     }
 
     companion object {

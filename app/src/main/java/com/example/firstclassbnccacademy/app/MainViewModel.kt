@@ -6,6 +6,7 @@ import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.firstclassbnccacademy.domain.GetIndonesiaDeathCases
 import com.example.firstclassbnccacademy.domain.GetIndonesiaPositiveCases
 import com.example.firstclassbnccacademy.domain.GetIndonesiaRecoveredCases
 import com.example.firstclassbnccacademy.domain.GetIndonesiaTotalCases
@@ -20,7 +21,8 @@ class MainViewModel @ViewModelInject constructor(
     @ApplicationContext context: Context,
     private val getIndonesiaTotalCases: GetIndonesiaTotalCases,
     private val getIndonesiaPositiveCases: GetIndonesiaPositiveCases,
-    private val getIndonesiaRecoveredCases: GetIndonesiaRecoveredCases
+    private val getIndonesiaRecoveredCases: GetIndonesiaRecoveredCases,
+    private val getIndonesiaDeathCases: GetIndonesiaDeathCases
 ) : ViewModel() {
 
     private val _totalCase: MutableLiveData<String> by lazy {
@@ -35,20 +37,21 @@ class MainViewModel @ViewModelInject constructor(
         MutableLiveData<String>()
     }
 
+    private val _deathCases: MutableLiveData<String> by lazy {
+        MutableLiveData<String>()
+    }
+
+    val deathCases: LiveData<String>
+        get() = _deathCases
+
     val positiveCases: LiveData<String>
-        get() {
-            return _positiveCase
-        }
+        get() = _positiveCase
 
     val recoveredCase: LiveData<String>
-        get() {
-            return _recoveredCase
-        }
+        get() = _recoveredCase
 
     val totalCase: LiveData<String>
-        get() {
-            return _totalCase
-        }
+        get() = _totalCase
 
     fun getIndonesiaTotalCases(){
         getIndonesiaTotalCases.execute()
@@ -60,7 +63,7 @@ class MainViewModel @ViewModelInject constructor(
                 }
 
                 override fun onComplete() {
-
+                    //no implementation
                 }
 
                 override fun onError(e: Throwable?) {
@@ -79,7 +82,7 @@ class MainViewModel @ViewModelInject constructor(
                 }
 
                 override fun onComplete() {
-
+                    //no implementation
                 }
 
                 override fun onError(e: Throwable?) {
@@ -98,7 +101,26 @@ class MainViewModel @ViewModelInject constructor(
                 }
 
                 override fun onComplete() {
+                    //no implementation
+                }
 
+                override fun onError(e: Throwable?) {
+                    Log.e("ErrorMessage", e.toString())
+                }
+            })
+    }
+
+    fun getIndonesiaDeathCases() {
+        getIndonesiaDeathCases.execute()
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribeOn(Schedulers.io())
+            .subscribeWith(object : DisposableObserver<String>() {
+                override fun onComplete() {
+                    //no implementation
+                }
+
+                override fun onNext(t: String?) {
+                    _deathCases.postValue(t.orEmpty())
                 }
 
                 override fun onError(e: Throwable?) {

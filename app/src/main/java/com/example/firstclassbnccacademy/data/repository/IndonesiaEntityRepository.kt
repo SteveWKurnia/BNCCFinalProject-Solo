@@ -1,6 +1,7 @@
 package com.example.firstclassbnccacademy.data.repository
 
 import com.example.firstclassbnccacademy.data.RetrofitInstance
+import com.example.firstclassbnccacademy.data.UtilityHelper.removeComma
 import com.example.firstclassbnccacademy.data.mapper.IndonesiaTotalCaseMapper
 import com.example.firstclassbnccacademy.data.models.IndonesiaNetworkData
 import com.example.firstclassbnccacademy.data.retrofitinterfaces.IndonesiaData
@@ -21,7 +22,9 @@ class IndonesiaEntityRepository @Inject constructor(
     }
 
     override fun getIndonesiaPositiveCases(): Observable<String> {
-        TODO("Not yet implemented")
+        return RetrofitInstance.retrofit.create(IndonesiaData::class.java).getIndonesiaData().map {
+            it.get(0).positive.removeComma()
+        }
     }
 
     override fun getIndonesiaRecoveredCases(): Observable<String> {

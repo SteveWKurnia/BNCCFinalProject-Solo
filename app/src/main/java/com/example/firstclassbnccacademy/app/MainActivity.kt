@@ -20,12 +20,14 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         viewModel.getIndonesiaTotalCases()
+        viewModel.getIndonesiaPositiveCases()
     }
 
     override fun onStart() {
         super.onStart()
         setupIntentToLookUp()
         viewModel.totalCase.observe(this, getTotalCaseObserver)
+        viewModel.positiveCases.observe(this, getPositiveCaseObserver)
     }
 
     private fun setupIntentToLookUp() {
@@ -43,6 +45,12 @@ class MainActivity : AppCompatActivity() {
         pb_load_total_case?.visibility = View.GONE
         group_total_case?.visibility = View.VISIBLE
         tv_total_case?.text = it.orEmpty()
+    }
+
+    private var getPositiveCaseObserver: Observer<String> = Observer {
+        pb_positive_case?.visibility = View.GONE
+        ll_positive_case?.visibility = View.VISIBLE
+        tv_positive_case?.text = it.orEmpty()
     }
 
     companion object {

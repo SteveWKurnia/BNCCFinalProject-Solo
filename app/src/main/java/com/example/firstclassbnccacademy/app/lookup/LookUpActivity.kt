@@ -2,8 +2,10 @@ package com.example.firstclassbnccacademy.app.lookup
 
 import android.os.Bundle
 import android.view.View
+import android.widget.ImageView
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.SearchView
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -29,20 +31,14 @@ class LookUpActivity: AppCompatActivity() {
     override fun onStart() {
         super.onStart()
         setupBackButton()
-//        setupBundledData()
         setupSearchView()
         viewModel.provinceData.observe(this, observer)
     }
 
-//    private fun setupBundledData() {
-//        val str = intent?.getStringExtra(MainActivity.EXTRA).orEmpty()
-//        tv_main?.text = str
-//    }
-
     private fun setupDynamicStatusBarColor() {
         val view = this.window.decorView
         view.systemUiVisibility = view.systemUiVisibility or View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
-        this.window.statusBarColor = ContextCompat.getColor(this,
+        window.statusBarColor = ContextCompat.getColor(this,
             R.color.off_white
         )
     }
@@ -55,12 +51,37 @@ class LookUpActivity: AppCompatActivity() {
 
     private fun setupSearchView() {
         setupClearButton()
+        setupLiveSearch()
+        disableSearchViewClear()
     }
 
     private fun setupClearButton() {
         iv_clear?.setOnClickListener {
-            et_search?.text?.clear()
+            sv_search.apply {
+                setQuery("",false)
+                clearFocus()
+            }
         }
+    }
+
+    private fun setupLiveSearch() {
+        sv_search?.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                adapter.filter.filter(newText)
+                return false
+            }
+
+        })
+    }
+
+    private fun disableSearchViewClear() {
+        val closeBtn = sv_search?.findViewById<ImageView>(R.id.search_close_btn)
+        closeBtn?.isEnabled = false
+        closeBtn?.setImageDrawable(null)
     }
 
     private fun setupRecycler() {

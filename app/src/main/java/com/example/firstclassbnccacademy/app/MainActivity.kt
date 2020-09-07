@@ -19,15 +19,13 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        viewModel.getIndonesiaTotalCases()
-        viewModel.getIndonesiaPositiveCases()
+        setupViewModelsData()
     }
 
     override fun onStart() {
         super.onStart()
         setupIntentToLookUp()
-        viewModel.totalCase.observe(this, getTotalCaseObserver)
-        viewModel.positiveCases.observe(this, getPositiveCaseObserver)
+        setupViewModelObservers()
     }
 
     private fun setupIntentToLookUp() {
@@ -51,6 +49,24 @@ class MainActivity : AppCompatActivity() {
         pb_positive_case?.visibility = View.GONE
         ll_positive_case?.visibility = View.VISIBLE
         tv_positive_case?.text = it.orEmpty()
+    }
+
+    private var getRecoveredCaseObserver: Observer<String> = Observer {
+        pb_recovered_case?.visibility = View.GONE
+        ll_recovered_case?.visibility = View.VISIBLE
+        tv_recovered_case?.text = it.orEmpty()
+    }
+
+    private fun setupViewModelsData() {
+        viewModel.getIndonesiaTotalCases()
+        viewModel.getIndonesiaPositiveCases()
+        viewModel.getIndonesiaRecoveredCases()
+    }
+
+    private fun setupViewModelObservers() {
+        viewModel.totalCase.observe(this, getTotalCaseObserver)
+        viewModel.positiveCases.observe(this, getPositiveCaseObserver)
+        viewModel.recoveredCase.observe(this, getRecoveredCaseObserver)
     }
 
     companion object {

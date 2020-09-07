@@ -28,7 +28,9 @@ class IndonesiaEntityRepository @Inject constructor(
     }
 
     override fun getIndonesiaRecoveredCases(): Observable<String> {
-        TODO("Not yet implemented")
+        return RetrofitInstance.retrofit.create(IndonesiaData::class.java).getIndonesiaData().map {
+            it.get(0).recovered.removeComma()
+        }
     }
 
     override fun getIndonesiaDeathCases(): Observable<String> {

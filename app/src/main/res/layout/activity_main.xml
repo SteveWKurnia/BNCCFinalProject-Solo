@@ -151,13 +151,23 @@
                 app:cardBackgroundColor="@color/green"
                 app:cardElevation="5dp">
 
+                <ProgressBar
+                    android:id="@+id/pb_recovered_case"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:indeterminateTint="@color/off_white"/>
+
                 <LinearLayout
+                    android:id="@+id/ll_recovered_case"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
-                    android:gravity="center">
+                    android:gravity="center"
+                    android:visibility="gone">
 
                     <TextView
+                        android:id="@+id/tv_recovered_case"
                         android:text="45401"
                         android:textColor="#fff"
                         style="@style/h4"

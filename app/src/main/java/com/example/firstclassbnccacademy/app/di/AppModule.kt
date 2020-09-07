@@ -1,7 +1,9 @@
-package com.example.firstclassbnccacademy.app
+package com.example.firstclassbnccacademy.app.di
 
+import com.example.firstclassbnccacademy.data.ProvinceEntityRepository
 import com.example.firstclassbnccacademy.data.repository.IndonesiaEntityRepository
 import com.example.firstclassbnccacademy.domain.IndonesiaRepository
+import com.example.firstclassbnccacademy.domain.ProvinceRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -16,5 +18,10 @@ object AppModule {
     @Singleton
     fun provideIndonesiaRepository(indonesiaEntityRepository: IndonesiaEntityRepository): IndonesiaRepository
             = indonesiaEntityRepository
+
+    @Provides
+    @Singleton
+    fun provideProvinceRepository(provinceEntityRepository: ProvinceEntityRepository): ProvinceRepository
+            = provinceEntityRepository
 
 }

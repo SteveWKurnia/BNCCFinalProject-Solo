@@ -1,4 +1,4 @@
-package com.example.firstclassbnccacademy.app
+package com.example.firstclassbnccacademy.app.main
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -7,7 +7,7 @@ import android.view.View
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import com.example.firstclassbnccacademy.R
-import com.example.firstclassbnccacademy.data.UtilityHelper
+import com.example.firstclassbnccacademy.app.lookup.LookUpActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_main.*
 

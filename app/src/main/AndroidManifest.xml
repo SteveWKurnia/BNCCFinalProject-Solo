@@ -12,14 +12,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:name=".app.ApplicationEntryPoint">
-        <activity android:name=".app.MainActivity">
+        <activity android:name=".app.main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".app.LookUpActivity"/>
+        <activity android:name=".app.lookup.LookUpActivity"/>
     </application>
 
 </manifest>

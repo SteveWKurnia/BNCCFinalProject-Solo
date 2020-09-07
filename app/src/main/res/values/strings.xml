@@ -15,4 +15,5 @@
     <string name="look_up_desc">See details by province all over Indonesia</string>
     <string name="hotline_title">Hotline</string>
     <string name="hotline_desc">Check emergency number to contact</string>
+    <string name="hotline_modal_desc">Layanan darurat via telepon yang disediakan oleh Kemkes dan juga Pemprov DKI Jakarta</string>
 </resources>

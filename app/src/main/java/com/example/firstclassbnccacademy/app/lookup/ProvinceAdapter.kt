@@ -7,7 +7,6 @@ import android.widget.Filter
 import android.widget.Filterable
 import androidx.recyclerview.widget.RecyclerView
 import com.example.firstclassbnccacademy.R
-import kotlinx.android.synthetic.main.activity_main.view.*
 import kotlinx.android.synthetic.main.province_recycler_item.view.*
 import java.util.*
 
@@ -15,14 +14,14 @@ class ProvinceAdapter: RecyclerView.Adapter<ProvinceAdapter.ProvinceViewHolder>(
 
     private val provinceData = mutableListOf<ProvinceData>()
 
-    private val filteredProvinceData = mutableListOf<ProvinceData>()
+    private val completeProvinceData = mutableListOf<ProvinceData>()
 
     fun setData(newData: List<ProvinceData>) {
         provinceData.apply {
             clear()
             addAll(newData)
         }
-        filteredProvinceData.addAll(newData)
+        completeProvinceData.addAll(newData)
         notifyDataSetChanged()
     }
 
@@ -51,12 +50,12 @@ class ProvinceAdapter: RecyclerView.Adapter<ProvinceAdapter.ProvinceViewHolder>(
         override fun performFiltering(constraint: CharSequence?): FilterResults {
             val filtered = mutableListOf<ProvinceData>()
             if (constraint.isNullOrBlank()) {
-                filtered.addAll(filteredProvinceData)
+                filtered.addAll(completeProvinceData)
             } else {
                 val filterPattern = constraint.toString().toLowerCase(Locale.ROOT).trim()
-                for (i in provinceData.indices) {
-                    if (provinceData.get(i).name.toLowerCase(Locale.ROOT).contains(filterPattern)){
-                        filtered.add(provinceData.get(i))
+                for (i in completeProvinceData.indices) {
+                    if (completeProvinceData.get(i).name.toLowerCase(Locale.ROOT).contains(filterPattern)){
+                        filtered.add(completeProvinceData.get(i))
                     }
                 }
             }

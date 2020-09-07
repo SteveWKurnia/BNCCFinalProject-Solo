@@ -6,8 +6,12 @@ import javax.inject.Inject
 class IndonesiaTotalCaseMapper @Inject constructor() {
 
     fun map(indonesiaData: List<IndonesiaNetworkData>): String {
-        val totalCases = indonesiaData.get(0).deaths.toInt() + indonesiaData.get(0).positive.toInt() + indonesiaData.get(0).recovered.toInt()
+        val totalCases =    indonesiaData.get(0).deaths.removeComma().toInt() +
+                            indonesiaData.get(0).positive.removeComma().toInt() +
+                            indonesiaData.get(0).recovered.removeComma().toInt()
         return totalCases.toString()
     }
+
+    fun String.removeComma(): String = this.replace(",".toRegex(),"")
 
 }

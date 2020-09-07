@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
+import com.example.bnccfinalproject.HotlineDialogFragment
 import com.example.firstclassbnccacademy.R
 import com.example.firstclassbnccacademy.app.lookup.LookUpActivity
 import dagger.hilt.android.AndroidEntryPoint
@@ -25,6 +26,7 @@ class MainActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
         setupIntentToLookUp()
+        setupHotlineDialog()
         setupViewModelObservers()
     }
 
@@ -36,6 +38,12 @@ class MainActivity : AppCompatActivity() {
                 }
                 context.startActivity(intent)
             }
+        }
+    }
+
+    private fun setupHotlineDialog() {
+        cl_hotline?.setOnClickListener {
+            HotlineDialogFragment.show(supportFragmentManager)
         }
     }
 

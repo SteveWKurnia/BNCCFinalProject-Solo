@@ -1,13 +1,13 @@
 package com.example.firstclassbnccacademy.app.main
 
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import com.example.bnccfinalproject.HotlineDialogFragment
 import com.example.firstclassbnccacademy.R
+import com.example.firstclassbnccacademy.app.info.InformationDialog
 import com.example.firstclassbnccacademy.app.lookup.LookUpActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_main.*
@@ -27,6 +27,7 @@ class MainActivity : AppCompatActivity() {
         super.onStart()
         setupIntentToLookUp()
         setupHotlineDialog()
+        setupInformationDialog()
         setupViewModelObservers()
     }
 
@@ -39,6 +40,13 @@ class MainActivity : AppCompatActivity() {
     private fun setupHotlineDialog() {
         cl_hotline?.setOnClickListener {
             HotlineDialogFragment.show(supportFragmentManager)
+        }
+    }
+
+    private fun setupInformationDialog() {
+        iv_info?.setOnClickListener {
+            val dialog = InformationDialog()
+            dialog.show(supportFragmentManager, "Info")
         }
     }
 

@@ -32,12 +32,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupIntentToLookUp() {
         cl_lookup?.setOnClickListener {
-            it.context?.let { context ->
-                val intent = Intent(context, LookUpActivity::class.java).apply {
-                    putExtra(EXTRA, "Print something")
-                }
-                context.startActivity(intent)
-            }
+            LookUpActivity.open(this)
         }
     }
 

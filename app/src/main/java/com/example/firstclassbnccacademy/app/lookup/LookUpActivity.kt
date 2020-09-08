@@ -1,5 +1,7 @@
 package com.example.firstclassbnccacademy.app.lookup
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
@@ -96,6 +98,15 @@ class LookUpActivity: AppCompatActivity() {
         pb_province?.visibility = View.GONE
         rv_province?.visibility = View.VISIBLE
         adapter.setData(it)
+    }
+
+    companion object {
+
+        fun open(context: Context) {
+            val intent = Intent(context, LookUpActivity::class.java)
+            context.startActivity(intent)
+        }
+
     }
 
 }

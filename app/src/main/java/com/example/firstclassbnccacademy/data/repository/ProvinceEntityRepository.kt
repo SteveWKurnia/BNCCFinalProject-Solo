@@ -1,5 +1,6 @@
-package com.example.firstclassbnccacademy.data
+package com.example.firstclassbnccacademy.data.repository
 
+import com.example.firstclassbnccacademy.data.RetrofitInstance
 import com.example.firstclassbnccacademy.data.mapper.ProvinceAttributeMapper
 import com.example.firstclassbnccacademy.data.retrofitinterfaces.IndonesiaProvinceData
 import com.example.firstclassbnccacademy.domain.ProvinceDataModel

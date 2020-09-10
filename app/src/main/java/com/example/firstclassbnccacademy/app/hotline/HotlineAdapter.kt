@@ -1,4 +1,4 @@
-package com.example.bnccfinalproject
+package com.example.firstclassbnccacademy.app.hotline
 
 import android.content.Intent
 import android.net.Uri
@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.bnccfinalproject.Hotline
 import com.example.firstclassbnccacademy.R
 import kotlinx.android.synthetic.main.hotline_recycler_items.view.*
 

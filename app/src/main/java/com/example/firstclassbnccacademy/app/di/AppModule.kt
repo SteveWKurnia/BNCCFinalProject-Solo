@@ -1,7 +1,9 @@
 package com.example.firstclassbnccacademy.app.di
 
-import com.example.firstclassbnccacademy.data.ProvinceEntityRepository
+import com.example.firstclassbnccacademy.data.repository.HotlineEntityRepository
+import com.example.firstclassbnccacademy.data.repository.ProvinceEntityRepository
 import com.example.firstclassbnccacademy.data.repository.IndonesiaEntityRepository
+import com.example.firstclassbnccacademy.domain.HotlineRepository
 import com.example.firstclassbnccacademy.domain.IndonesiaRepository
 import com.example.firstclassbnccacademy.domain.ProvinceRepository
 import dagger.Module
@@ -23,5 +25,10 @@ object AppModule {
     @Singleton
     fun provideProvinceRepository(provinceEntityRepository: ProvinceEntityRepository): ProvinceRepository
             = provinceEntityRepository
+
+    @Provides
+    @Singleton
+    fun provideHotlineRepository(hotlineEntityRepository: HotlineEntityRepository): HotlineRepository
+            = hotlineEntityRepository
 
 }

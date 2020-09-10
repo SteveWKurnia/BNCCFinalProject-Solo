@@ -1,6 +1,5 @@
 package com.example.bnccfinalproject
 
-import android.content.res.Resources
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.firstclassbnccacademy.R
-import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.example.firstclassbnccacademy.app.hotline.HotlineAdapter
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kotlinx.android.synthetic.main.modal_hotline_bottom_sheet.*
 
@@ -54,18 +53,18 @@ class HotlineDialogFragment: BottomSheetDialogFragment() {
 
     private fun mockData(): List<Hotline> =
         listOf<Hotline>(
-            Hotline("021-5210-411","Kementrian Kesehatan"),
-            Hotline("0812-1212-3119","Kementrian Kesehatan"),
-            Hotline("112","Pemprov DKI Jakarta"),
-            Hotline("0813-8837-6955","Pemprov DKI Jakarta"),
-            Hotline("024-358-0713","Pemprov Jawa Tengah"),
-            Hotline("0823-1360-0560","Pemprov Jawa Tengah"),
-            Hotline("031-843-0313","Pemprov Jawa Timur"),
-            Hotline("0813-3436-7800","Pemprov Jawa Timur"),
-            Hotline("119","Pemprov Jawa Barat"),
-            Hotline("0811-209-3306","Pemprov Jawa Barat"),
-            Hotline("0274-555-585","Pemprov D.I Yogyakarta"),
-            Hotline("0811-2764-800","Pemprov D.I Yogyakarta")
+            Hotline("","021-5210-411","Kementrian Kesehatan"),
+            Hotline("","0812-1212-3119","Kementrian Kesehatan"),
+            Hotline("","112","Pemprov DKI Jakarta"),
+            Hotline("","0813-8837-6955","Pemprov DKI Jakarta"),
+            Hotline("","024-358-0713","Pemprov Jawa Tengah"),
+            Hotline("","0823-1360-0560","Pemprov Jawa Tengah"),
+            Hotline("","031-843-0313","Pemprov Jawa Timur"),
+            Hotline("","0813-3436-7800","Pemprov Jawa Timur"),
+            Hotline("","119","Pemprov Jawa Barat"),
+            Hotline("","0811-209-3306","Pemprov Jawa Barat"),
+            Hotline("","0274-555-585","Pemprov D.I Yogyakarta"),
+            Hotline("","0811-2764-800","Pemprov D.I Yogyakarta")
         )
 
     companion object {

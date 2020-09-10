@@ -1,6 +1,6 @@
-package com.example.firstclassbnccacademy.app.hotline
+package com.example.firstclassbnccacademy.domain
 
-data class Hotline(
+data class HotlineDataModel (
     var imgUrl: String,
     var phoneNumber: String,
     var description: String

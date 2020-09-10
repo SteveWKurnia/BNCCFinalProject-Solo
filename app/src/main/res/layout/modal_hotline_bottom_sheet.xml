@@ -50,6 +50,18 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tv_hotline_title" />
 
+                <ProgressBar
+                    android:id="@+id/pb_hotline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="225dp"
+                    android:paddingBottom="225dp"
+                    app:layout_constraintTop_toBottomOf="@id/tv_hotline_desc"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:visibility="visible"
+                    android:indeterminateTint="@color/indigo2"/>
+
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rv_hotline"
                     android:layout_width="match_parent"
@@ -60,7 +72,8 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     android:padding="5dp"
-                    android:clipToPadding="false"/>
+                    android:clipToPadding="false"
+                    android:visibility="gone"/>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

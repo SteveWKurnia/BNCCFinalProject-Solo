@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.bnccfinalproject.Hotline
 import com.example.firstclassbnccacademy.R
 import kotlinx.android.synthetic.main.hotline_recycler_items.view.*
 
@@ -41,34 +40,9 @@ class HotlineAdapter: RecyclerView.Adapter<HotlineAdapter.HotlineViewHolder>() {
             }
             itemView.tv_phone_number?.text = hotline?.phoneNumber.orEmpty()
             itemView.tv_description?.text = hotline?.description.orEmpty()
-            hotline?.description?.let {
-                when (it) {
-                    "Kementrian Kesehatan" -> {
-                        R.drawable.ic_ministry_of_health
-                    }
-                    "Pemprov DKI Jakarta" -> {
-                        R.drawable.ic_jakarta_governor
-                    }
-                    "Pemprov Jawa Tengah" -> {
-                        R.drawable.ic_central_java_governor
-                    }
-                    "Pemprov Jawa Timur" -> {
-                        R.drawable.ic_east_java_governor
-                    }
-                    "Pemprov Jawa Barat" -> {
-                        R.drawable.ic_west_java_governor
-                    }
-                    "Pemprov D.I Yogyakarta" -> {
-                        R.drawable.ic_jogja_governor
-                    }
-                    else -> R.drawable.ic_ministry_of_health
-                }
-            }?.let {
-                Glide.with(itemView)
-                    .load(it)
-                    .into(itemView.iv_logo)
-            }
-
+            Glide.with(itemView)
+                .load(hotline?.imgUrl)
+                .into(itemView.iv_logo)
         }
 
     }
